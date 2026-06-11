@@ -1,0 +1,1857 @@
+/* ---------------------------------------------------- INICIO SESION y REGISTRO ----------------------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* GENERAL */
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Incluye el padding y bordes en el tamaño total del elemento */
+  text-decoration: none; /* Quita el subrayado por defecto de todos los enlaces */
+}
+
+.inicio-sesion, .registro 
+{
+  display: flex; /* Activa Flexbox para organizar los elementos hijos */
+  justify-content: center; /* Centra la tarjeta horizontalmente en la pantalla */
+  align-items: center; /* Centra la tarjeta verticalmente en la pantalla */
+  font-family: "Poppins", sans-serif; /* Tipo de letra */
+  min-height: 100vh; /* Fuerza al fondo a ocupar toda la altura del monitor */
+  background: linear-gradient(90deg, #e2e2e2, #c9d6ff); /* Es un efecto de fondo usando 2 colores */
+}
+
+/* Tarjeta principal blanca */
+.contenedor 
+{
+  background: #fff;
+  width: 450px; /* Ancho fijo de la tarjeta */
+  padding: 40px; /* Espacio de separación interno para no pegar los textos al borde */
+  border-radius: 30px; /* Bordes redondeados */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.15); /* Sombra suave para dar efecto de flotado */
+}
+
+h1 
+{
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px; /* Separa el título principal de los campos de texto de abajo */
+  color: #333; /* Color gris oscuro para el texto principal */
+}
+
+p 
+{
+  font-size: 14px;
+  text-align: center;
+  margin: 15px 0; /* Margen arriba y abajo para separar el texto de otros bloques */
+  color: #666; /* Gris neutro para textos secundarios */
+}
+
+/* Cajas de los inputs */
+.input-box 
+{
+  position: relative; /* Permite posicionar el icono de forma absoluta dentro de ella */
+  margin: 20px 0; /* Separa verticalmente los bloques de los inputs entre sí */
+}
+
+.input-box input 
+{
+  width: 100%;
+  padding: 13px 50px 13px 20px; /* 50px a la derecha para que el texto escrito no pise el icono */
+  background: #eee; /* Color gris claro de fondo para las cajas de texto */
+  border-radius: 8px; /* Esquinas redondeadas */
+  border: none; /* Elimina el borde negro por defecto */
+  outline: none; /* Quita el borde de selección al hacer clic para escribir */
+  font-size: 16px;
+}
+
+.input-box i 
+{
+  position: absolute; /* Despega el icono y permite ubicarlo libremente sobre el input */
+  right: 20px; /* Separa el icono exactamente 20px del borde derecho */
+  top: 50%; /* Lo baja hasta la mitad de la caja */
+  transform: translateY(-50%); /* Ajuste para centrarlo verticalmente para que se translade para arriba */
+  font-size: 20px;
+  color: #555;
+}
+
+.olvido-enlace 
+{
+  text-align: right; /* Alínea el enlace a la derecha */
+  margin: -10px 0 15px; /* El margen negativo de -10px lo acerca al input de arriba */
+}
+
+.olvido-enlace a 
+{
+  font-size: 13px;
+  color: #666;
+}
+
+/* Botón Azul */
+.btn-azul 
+{
+  width: 100%;
+  height: 48px;
+  background: #7494ec; /* Color azul base del botón */
+  border-radius: 8px;
+  border: none;
+  cursor: pointer; /* Transforma el cursor en una mano clickeable al pasar por encima */
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600; /* Grosor de letra seminegrita para resaltar el texto 'Login' */
+  transition: 0.3s; /* Suaviza el cambio de color al hacer el efecto hover */
+}
+
+.btn-azul:hover 
+{
+  background: #5d7cd0;     /* Oscurece el color azul cuando el cursor pasa por encima del botón */
+}
+
+/* Iconos de Redes Sociales */
+.redes-sociales 
+{
+  display: flex;
+  justify-content: center; /* Centra los tres botones de redes sociales en horizontal */
+  gap: 15px;               /* Separa de forma idéntica los tres botones entre sí */
+}
+
+.redes-sociales a 
+{
+  display: inline-flex;    /* Convierte el enlace en contenedor flexible para centrar su icono */
+  padding: 10px;           /* Añade espacio interno para formar el cuadrado alrededor del icono */
+  border: 2px solid #ccc;  /* Borde fino gris claro para enmarcar las redes sociales */
+  border-radius: 8px;
+  font-size: 22px;
+  color: #333;
+}
+
+.cambio-texto a 
+{
+  color: #7494ec; /* Aplica el tono azul corporativo al link de registro inferior */
+  font-weight: 600;
+  text-decoration: underline; /* Añade la línea de subrayado típica de los enlaces web */
+}
+
+/* ---------------------------------------------------------- INICIO -------------------------------------------------------------------- */
+.inicio 
+{
+    margin: 0; /* Quita los espacios de los lados para que la página no tenga barras de scroll */
+    height: 100vh; /* Fuerza a la página a medir exactamente el alto completo de la pantalla */
+    background-image: url(../Fotos\ y\ fondos/Wii-menu-inicio.jpg);
+    background-size: cover;
+    cursor: url(../Cursor/Wii\ Cursor.cur), auto;
+    overflow: hidden; /* Oculta cualquier cosa que intente salirse de la pantalla */
+    padding: 5px 0 0 0; /* Añade una pequeña separación solo en el borde superior */
+}
+
+.wii-grid 
+{
+    display: grid; /* Para organizar los canales en filas y columnas */
+    grid-template-columns: repeat(4, 250px); /* Crea 4 columnas de canales con un ancho de 250 píxeles cada una */
+    grid-template-rows: repeat(3, 130px); /* Crea 3 filas de canales con una altura de 130 píxeles cada una */
+    gap: 47px; /* Deja una separación entre todos los canales */
+    padding: 20px; 
+    justify-content: center;
+    margin-top: 100px; /* Empuja los canales hacia abajo */
+}
+
+.channel 
+{
+    border: 3px solid #b5b5b5;
+    border-radius: 15px; /* Redondea las esquinas de los canales */
+    transition: transform 0.6s, border-color 0.2s; /* Hace que el movimiento al pasar el ratón sea suave */
+    overflow: hidden; /* Recorta y oculta las esquinas de las fotos para que no se salgan del borde redondeado */
+}
+
+/* Efecto al pasar el ratón (Hover) */
+.channel:hover 
+{
+    border-color: #31a0ff;
+    transform: scale(1.10); /* Agranda el canal un 10% */
+    box-shadow: 0 0 15px rgba(49, 160, 255, 0.5);
+}
+
+.channel img 
+{
+    width: 100%; /* Obliga a la foto a ocupar todo el ancho del canal */
+    height: 100%; /* Obliga a la foto a ocupar todo el alto del canal */
+    object-fit: cover; /* Estira la foto para que llene el canal por completo sin deformar la imagen */
+    display: block; /* Elimina un pequeño espacio en blanco que los navegadores ponen debajo de las fotos */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; /* Cambia el cursor */
+}
+
+/* RELOJ */
+.wii-reloj 
+{
+    position: fixed; /* Deja el reloj fijo en la pantalla para que nunca se mueva de su sitio */
+    bottom: 20px; /* Lo separa del borde inferior de la pantalla */
+    left: 50%; /* Lo mueve justo hasta la mitad horizontal de la pantalla */
+    transform: translateX(-50%); /* Lo centra justo en medio usando su propio eje */
+}
+
+/* TEXTO DEL RELOJ */
+.wii-digitos 
+{
+    font-family: 'Orbitron', sans-serif; /* Aplica el tipo de letra con aspecto de reloj digital */
+    font-size: 64px; /* Tamaño de la letra */
+    color: #7b7e85;
+    letter-spacing: 2px; /* Añade una separación fija entre número y número para que se lea mejor */
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8); /* Pequeño efecto */
+}
+
+/* LOGO DE LA WII */
+.wii-logo 
+{
+    position: absolute; /* Deja el logo fijo en un punto de la pantalla */
+    top: 15px; /* Lo separa del borde de arriba */
+    left: 30px; /* Lo separa del borde izquierdo */
+    z-index: 1000; /* Lo pone en una capa superior para que nada lo tape */
+}
+
+.wii-logo img 
+{
+    height: 45px; /* Le da una altura fija para que no se vea gigante */
+    width: auto; /* Ajusta el ancho automáticamente para no deformar el logo */
+    display: block; /* Quita espacios invisibles que los navegadores ponen debajo */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto;
+}
+
+/* -------------------------------------------------------- BARRA DE NAVEGACIÓN -------------------------------------------------------------------*/
+.wii-nav 
+{
+    width: 100%; /* Hace que la barra ocupe todo el ancho horizontal */
+    display: flex; /* Activa el Flexbox para alinear los elementos internos */
+    justify-content: space-between; /* Separa los bloques a los extremos de la barra */
+    align-items: center; /* Centra todos los elementos verticalmente */
+    padding: 10px 40px; 
+    background: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-bottom: 2px solid #e0e0e0;
+    box-sizing: border-box; /* Evita que el padding sume tamaño extra al ancho */
+    position: fixed; /* Despega la barra del flujo y la fija en pantalla */
+    top: 0; /* La pega al borde superior de la ventana */
+    left: 0; /* La pega al borde izquierdo de la ventana */
+    z-index: 1000; /* Le da prioridad de capa para flotar por encima */
+}
+
+/* Enlaces de la izquierda */
+.nav-izda 
+{
+    display: flex; /* Organiza los enlaces en una fila horizontal */
+    gap: 50px; /* Añade un espacio de separación entre enlaces */
+    align-items: center; /* Mantiene los textos alineados verticalmente */
+    margin-left: 250px; 
+}
+
+.nav-enlace 
+{
+    text-decoration: none; /* Quita el subrayado nativo de los enlaces */
+    color: #444; 
+    font-family: "Poppins", sans-serif; 
+    font-size: 18px; /* Tamaño de la letra */
+    font-weight: 500; /* Aplica un grosor medio */
+    padding: 8px 16px; /* Margen interno */
+    border-radius: 8px; /* Esquinas redondeadas */
+    transition: all 0.3s ease; /* Suaviza la animación */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto;
+}
+
+.nav-enlace:hover 
+{
+    color: #31a0ff;
+    background: rgba(49, 160, 255, 0.1);
+}
+
+/* Botones (Login y Registro) */
+.nav-dcha 
+{
+    display: flex; /* Coloca los dos botones juntos en una fila */
+    gap: 18px; /* Añade una separación entre ambos botones */
+}
+
+/* Botones */
+.nav-btn 
+{
+    text-decoration: none; /* Elimina el subrayado de enlace en los botones */
+    font-family: "Poppins", sans-serif;
+    font-size: 16px; /* Tamaño de la letra */
+    font-weight: 600; /* Aplica un formato semi-negrita */
+    padding: 10px 24px; /* Determina la altura y anchura interna del botón */
+    border-radius: 50px; /* Redondea los bordes */
+    transition: all 0.2s ease-in-out; /* Transición para la escala y sombra */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; /* Muestra el puntero azul al apuntar al botón */
+}
+
+/* Botón registrarse: */
+.btn-registro 
+{
+    color: #555;
+    background: #ffffff;
+    border: 2px solid #b5b5b5;
+}
+
+.btn-registro:hover 
+{
+    border-color: #31a0ff;
+    color: #31a0ff;
+    transform: scale(1.05); /* Incrementa el tamaño un 5% simulando selección */
+    box-shadow: 0 5px 12px rgba(49, 160, 255, 0.3);
+}
+
+/* Botón login: */
+.btn-login 
+{
+    color: #ffffff;
+    background: linear-gradient(to bottom, #8ba8bd 0%, #7494ec 100%);
+    border: 2px solid #5d7cd0;
+}
+
+.btn-login:hover 
+{
+    background: linear-gradient(to bottom, #a0bcff 0%, #5d7cd0 100%);
+    transform: scale(1.05); /* Agranda el botón un 5% al pasar por encima */
+    box-shadow: 0 5px 15px rgba(116, 148, 236, 0.4);
+}
+
+/*-------------------------------------------------- FOOTER -----------------------------------------------------------------------*/
+.pie-seccion-abajo 
+{
+    margin-top: 60px; /* Separa el pie de página de los botones de arriba para que no se peguen */
+    margin-bottom: 0; /* Pega el pie de página por completo al borde de abajo de la pantalla */
+    width: 100%; /* Hace que ocupe todo el ancho de la pantalla */
+    box-sizing: border-box; /* Evita que los espacios internos deformen el tamaño de la barra */
+    background-image: url(../Fotos\ y\ fondos/fondo-footer.jpg);
+    padding: 40px 20px 20px 10px; /* Margen interno */
+    font-family: Arial, sans-serif; /* El tipo de letra */
+    border-top: 2px solid #f0f0f0;
+}
+
+/* Contenedor que pone las 3 columnas en fila */
+.pie-contenedor-bloques 
+{
+    display: flex; /* Pone las tres columnas en una sola fila horizontal */
+    max-width: 1200px; /* Evita que el contenido se estire demasiado en pantallas muy grandes */
+    margin: 0 auto; /* Centra el bloque entero en medio de la pantalla */
+    gap: 20px; 
+}
+
+/* Ancho para cada una de las 3 columnas */
+.pie-columna 
+{
+    width: 35%; /* Reparte el espacio dando a cada columna un tercio del total */
+}
+
+/* --- COLUMNA IZQUIERDA --- */
+.pie-titulo-empresa 
+{
+    font-size: 33px; 
+    font-weight: bold; 
+    margin: 0 0 15px 0; /* Deja un espacio libre por debajo del título para separarlo de los datos */
+}
+
+.pie-texto-info 
+{
+    font-size: 23px; /* Tamaño de la letra */
+    margin: 6px 0; /* Añade un pequeño espacio arriba y abajo de cada dato para que no se junten */
+}
+
+/* --- COLUMNA CENTRAL --- */
+.pie-menu-centro 
+{
+    display: flex;
+    flex-direction: column; /* Coloca los textos del menú uno debajo de otro */
+    align-items: center; /* Centra los textos horizontalmente */
+    position: relative; 
+    text-align: center; /* Para centrar el texto */
+}
+
+.pie-enlace-subir 
+{
+    position: absolute; /* Permite mover el botón flotando con total libertad por encima de lo demás */
+    top: -60px; /* Saca la flecha hacia arriba poniéndola por fuera del pie de página */
+}
+
+/* El círculo negro del botón de subir */
+.pie-circulo-flecha 
+{
+    background-color: #27c9ff;
+    color: #ffffff;
+    width: 60px; /* Ancho fijo del círculo azul */
+    height: 60px; /* Alto fijo del círculo azul */
+    border-radius: 50%; 
+    display: flex; /* Para centrar la flecha dentro del círculo */
+    justify-content: center; /* Centra la flecha de forma horizontal dentro del círculo */
+    align-items: center; /* Centra la flecha de forma vertical dentro del círculo */
+    font-size: 66px; /* Modifica el tamaño de la flecha que está dentro */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease; /* Hace que los cambios al pasar el ratón sean suaves */
+}
+
+.pie-enlace-subir:hover .pie-circulo-flecha 
+{
+    background-color: #23b2ff;
+    transform: scale(1.1); /* Agranda el círculo un poco al apuntarlo */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; /* Cambia el cursor al pasar el ratón*/
+}
+
+.pie-lista-enlaces 
+{
+    list-style: none; /* Quita los puntos negros decorativos que las listas llevan por defecto */
+    margin: 13px 0px; /* Añade espacio arriba y abajo de la lista de enlaces */
+}
+
+.pie-lista-enlaces li 
+{
+    margin: 24px 0px; /* Separa los enlaces de manera vertical */
+}
+
+.pie-lista-enlaces a 
+{
+    color: #222222;
+    font-size: 21px; /* Elige el tamaño de letra para los enlaces del centro */
+}
+
+.pie-lista-enlaces a:hover 
+{
+    text-decoration: underline; /* Añade la línea de subrayado solo al pasar el ratón por encima */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto;
+}
+
+.pie-enlace-inicio 
+{
+    font-weight: bold; /* Pone en negrita la palabra "Inicio" para destacar que es la principal */
+}
+
+/* --- COLUMNA DERECHA --- */
+.pie-legal-dcha 
+{
+    display: flex; 
+    flex-direction: column; /* Coloca las redes sociales encima de los textos */
+    align-items: flex-end; /* Lleva todos los elementos hacia el borde derecho de la pantalla */
+}
+
+.pie-grupo-redes 
+{
+    display: flex; /* Coloca los iconos de las redes sociales en una fila de lado a lado */
+    gap: 30px; /* Añade una separación fija entre cada icono de red social */
+    margin-bottom: 25px; /* Deja un espacio abajo para separarse de los textos de Aviso Legal y Cookies */
+}
+
+/* Iconos */
+.pie-icono-red 
+{
+    font-size: 60px; /* Cambia el tamaño de los iconos como si fuesen letras gigantes */
+    color: #222222;
+    transition: color 0.2s ease; /* Hace que el cambio de color al pasar el ratón sea suave */
+}
+
+.pie-icono-red:hover 
+{
+    color: #000000;
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; /* Activa el cursor al pasar el ratón */
+}
+
+.pie-grupo-legal 
+{
+    gap: 15px; /* Deja un espacio mínimo de separación entre los dos bloques */
+    margin-right: 37px; /* Empuja un poco los textos hacia la izquierda */
+}
+
+.pie-grupo-legal a 
+{
+    font-size: 24px; /* El tamaño de letra  */
+    color: #222222;
+    margin-left: 60px; /* Añade espacio extra entre las palabras para que no se amontonen */
+}
+
+.pie-grupo-legal a:hover 
+{
+    text-decoration: underline; /* Pone una línea debajo de Aviso Legal o Cookies al pasar el ratón */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto;
+}
+
+/* Lo que está abajo del todo */
+.pie-bloque-copyright 
+{
+    text-align: center; /* Texto centrado */
+    margin-top: 20px; /* Añade un espacio arriba para separarse de las columnas del contenido */
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Dibuja una línea gris muy finita y transparente encima del texto */
+    padding-top: 15px; /* Separa el texto para que no se pegue a la línea que tiene encima */
+}
+
+.pie-bloque-copyright p 
+{
+    font-size: 17px; /* Tamaño de la letra */
+    color: #444444;
+    margin: 0;
+}
+/* ----------------------------------------------------------- GALERÍA ---------------------------------------------------------------------- */
+.galeria-body 
+{
+    background-image: url(../Fotos\ y\ fondos/fondo-compra.jpg);
+    background-repeat: no-repeat; /* Para que el fondo no se repita constantemente*/
+    background-size: cover;
+    cursor: url(../Cursor/Wii\ Cursor.cur), auto;
+    background-position: center;
+    background-attachment: fixed; 
+    font-family: "Poppins", sans-serif; 
+}
+
+/* --- CABECERA --- */
+.gal-cabecera 
+{
+    text-align: center;
+    margin-top: 110px; /* Deja espacio arriba para que la barra de navegación no lo tape */
+    color: #444444;
+    font-family: Arial, sans-serif;
+}
+
+.gal-cabecera h2 
+{
+    font-size: 28px; 
+    margin-bottom: 5px; /* Deja un espacio pequeño abajo para separarlo del texto siguiente */
+    font-weight: bold; /* Pone la letra en negrita */
+}
+
+.gal-cabecera p 
+{
+    font-size: 16px; /* El tamaño de letra  */
+    color: #777777;
+    margin: 0; /* Quita los espacios que el navegador añade por defecto */
+}
+
+/* --- IMÁGENES --- */
+.gal-contenedor-grid 
+{
+    display: grid; /* Para organizar las tarjetas en filas y columnas */
+    grid-template-columns: repeat(4, 250px); /* Crea 4 columnas de tarjetas de 250 píxeles cada una */
+    gap: 40px 50px; /* Separa las tarjetas 40 píxeles entre filas y 50 píxeles entre columnas */
+    justify-content: center; /* Centra todo el bloque horizontalmente */
+    margin: 40px auto 80px auto; /* Centra el contenedor y le da espacio tanto arriba como abajo */
+    max-width: 1200px; 
+}
+
+/* --- TARJETA --- */
+.gal-tarjeta-foto 
+{
+    background-color: #ffffff; 
+    border: 3px solid #b5b5b5;
+    border-radius: 6px; /* Redondea un poco las esquinas de la tarjeta */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hace que los movimientos y sombras al pasar el ratón sean suaves */
+    overflow: hidden; /* Corta lo que se salga de la tarjeta para respetar las esquinas redondeadas */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.gal-tarjeta-foto:hover 
+{
+    transform: scale(1.04); /* Agranda la tarjeta cuando pasas el ratón por encima */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- CONTENEDOR DE LA IMAGEN --- */
+.gal-marco-img 
+{
+    height: 180px; /* Le da una altura al espacio donde va la foto */
+}
+
+.gal-marco-img img 
+{
+    width: 100%; /* Hace que la imagen ocupe todo el ancho de su espacio */
+    height: 100%; /* Hace que la imagen ocupe todo el alto de su espacio */
+    object-fit: cover; /* Adapta la foto para que llene el espacio sin deformarse */
+}
+
+/* --- CONTENEDOR CON INFORMACIÓN --- */
+.gal-bloque-info 
+{
+    padding: 15px; /* Margen interno */
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; /* Apila el título, el texto y el botón uno debajo de otro */
+    gap: 17px; /* Deja una separación fija entre el título, el texto y el botón */
+}
+
+.gal-titulo-item 
+{
+    font-size: 16px; 
+    color: #333333;
+    margin: 0; /* Quita el espacio por defecto del título */
+}
+
+.gal-texto-item 
+{
+    font-size: 13px; /* Elige el tamaño de letra para la descripción */
+    color: #666666;
+    margin: 0; /* Quita el espacio por defecto de la descripción */
+    line-height: 1.4; /* Regula el espacio entre líneas para que se lea mejor */
+    height: 22px; /* Deja una altura fija para que todas las cajas midan lo mismo */
+}
+
+/* --- BOTÓN --- */
+.gal-btn-accion 
+{
+    background-color: #f4f4f4;
+    color: #555555;
+    border: 2px solid #cccccc;
+    border-radius: 20px; /* Esquinas redondeadas*/
+    padding: 6px 0; /* Añade espacio arriba y abajo dentro del botón */
+    font-size: 13px; 
+    font-weight: bold;
+    transition: all 0.2s ease; /* Hace que el cambio de color al pasar el ratón sea rápido y suave */
+    width: 100%; /* Hace que el botón ocupe todo el ancho disponible de la tarjeta */
+    margin-top: 9px; /* Deja un pequeño espacio arriba para separarlo del texto */
+}
+
+.gal-btn-accion:hover 
+{
+    background-color: #27c9ff;
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; 
+    color: #ffffff;
+    border-color: #27c9ff;
+    box-shadow: 0 0 8px rgba(39, 201, 255, 0.5);
+}
+
+/* -------------------------------------------------- DETALLE GALERIA -------------------------------------------------------------------------------------------------*/
+.wii-detalle 
+{
+    display: flex; 
+    justify-content: center; /* Centra la tarjeta horizontalmente en la pantalla */
+    align-items: center; /* Centra la tarjeta verticalmente en la pantalla */
+    min-height: calc(100vh - 120px); /* Ajusta el alto mínimo restando la barra de arriba */
+    margin-top: 100px; /* Deja espacio arriba para que el menú de navegación no lo tape */
+    padding: 20px; /* Añade un espacio en los bordes de la pantalla */
+}
+
+.wii-detalle-tarjeta 
+{
+    background-color: #ffffff;
+    border: 3px solid #b5b5b5;
+    border-radius: 16px; /* Redondea las esquinas de la tarjeta */
+    width: 100%; /* Hace que ocupe todo el ancho disponible */
+    max-width: 900px; /* Limita el ancho máximo para que no se estire de más */
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.12);
+    overflow: hidden; /* Recorta lo que se salga de la tarjeta para respetar los bordes */
+    display: flex; /* Activa el diseño de cajas interno */
+    flex-direction: column; /* Coloca la barra gris, las fotos y los botones uno debajo de otro */
+    font-family: Arial, sans-serif; 
+}
+
+/* Barra superior gris */
+.wii-detalle-barra-top 
+{
+    background-color: #f0f0f0;
+    border-bottom: 2px solid #e0e0e0;
+    padding: 12px 25px; 
+    display: flex; 
+    align-items: center; /* Centra los textos verticalmente dentro de la barra */
+    color: #666666;
+    font-weight: bold; /* Pone las letras en negrita para resaltarlas */
+    font-size: 17px; /* Elige el tamaño de la letra */
+}
+
+/* Contenido */
+.wii-detalle-contenido 
+{
+    display: flex; 
+    gap: 30px; /* Deja una separación fija entre la foto y la columna de información */
+    padding: 30px; /* Margen interno */
+}
+
+/* Columna Izquierda: Imagen */
+.wii-detalle-izda 
+{
+    flex: 1; /* Permite que la foto se adapte y rellene espacio */
+    min-width: 300px; /* Evita que la zona de la foto se encoja demasiado */
+    display: flex; 
+}
+
+/* Marcos */
+.wii-marco 
+{
+    width: 100%; /* Hace que el marco ocupe todo el ancho de su columna */
+    max-width: 380px; /* Pone un límite para que la foto no se agrande demasiado */
+    border: 3px solid #b5b5b5;
+    border-radius: 6px; /* Esquinas redondeadas */
+    overflow: hidden; /* Recorta la foto para que respete las esquinas del marco */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+    background-color: #fcfcfc;
+}
+
+.wii-marco img 
+{
+    width: 100%; /* Obliga a la foto a ocupar todo el ancho del marco */
+    height: 100%; /* Obliga a la foto a ocupar todo el alto del marco */
+}
+
+/* Columna Derecha: Textos y Datos */
+.wii-detalle-dcha 
+{
+    flex: 1.2; /* Le da un poco más de espacio a esta columna que a la de la foto */
+    min-width: 300px; /* Evita que los textos se aplasten en pantallas pequeñas */
+    color: #333333;
+}
+
+.wii-detalle-titulo 
+{
+    font-size: 22px; /* Elige un tamaño de letra grande para el título principal */
+    color: #444444;
+    margin-top: 0; /* Quita el espacio sobrante arriba del título */
+    margin-bottom: 15px; /* Deja espacio libre abajo para separarlo de la tabla */
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 8px; /* Separa el texto de la línea que tiene abajo */
+}
+
+/* Información */
+.wii-tabla-info 
+{
+    width: 100%; /* Hace que la tabla ocupe todo el ancho de su zona */
+    margin-bottom: 20px; /* Deja espacio libre abajo para separarla de la descripción */
+    font-size: 14px; /* Tamaño de la letra */
+}
+
+.wii-tabla-info th 
+{
+    text-align: left; /* Alinea los títulos de la tabla hacia la izquierda */
+    color: #777777;
+    padding: 8px 5px; /* Añade separación dentro de las celdas para que no estén pegadas */
+    width: 40%; /* Asigna casi la mitad del ancho de la tabla a los títulos de la izquierda */
+    font-weight: bold; /* Pone los títulos de la tabla en negrita */
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.wii-tabla-info td 
+{
+    color: #222222;
+    padding: 8px 5px; /* Añade separación interna */
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Descripción */
+.wii-detalle-descripcion 
+{
+    background-color: #f9f9f9;
+    border: 2px solid #e8e8e8;
+    border-radius: 8px; /* Redondea las esquinas del cuadro de descripción */
+    padding: 15px; /* Añade espacio libre por dentro para que el texto no toque los bordes */
+}
+
+.wii-detalle-descripcion h3 
+{
+    margin-top: 0; /* Quita el espacio por defecto arriba del subtítulo */
+    font-size: 15px; 
+    color: #444444;
+    margin-bottom: 8px; 
+}
+
+.wii-detalle-descripcion p 
+{
+    font-size: 13.5px; 
+    color: #555555;
+    line-height: 1.5; /* Regula el espacio entre renglones para que se lea cómodamente */
+    margin: 0; /* Quita los márgenes por defecto del párrafo */
+}
+
+/* --- BOTONES --- */
+.wii-detalle-acciones 
+{
+    background-color: #f0f0f0;
+    border-top: 2px solid #e0e0e0;
+    padding: 20px 30px; /* Añade espacio amplio dentro de la zona de los botones */
+    display: flex; /* Activa el flexbox para poner los botones alineados */
+    justify-content: space-between; /* Envía un botón a la izquierda y otro a la derecha */
+    gap: 20px; /* Deja una separación mínima entre ambos */
+}
+
+.wii-btn
+{
+    display: flex; /* Activa el diseño de cajas dentro del botón para organizar su contenido */
+    align-items: center; /* Centra el texto y la flecha verticalmente dentro del botón */
+    justify-content: center; /* Centra el texto y la flecha horizontalmente dentro del botón */
+    background-color: #ffffff;
+    color: #666666;
+    border: 2px solid #cccccc;
+    border-radius: 25px; /* Redondea los bordes */
+    padding: 10px 25px; /* Añade un colchón de espacio libre dentro del botón */
+    font-size: 14px; /* Elige el tamaño de letra para el texto de los botones */
+    font-weight: bold; /* Pone las letras del botón en negrita */
+    transition: all 0.2s ease; /* Hace que los efectos visuales al pasar el ratón cambien de forma suave */
+    min-width: 160px; /* Asegura un ancho mínimo para que el botón no se encoja demasiado */
+    box-shadow: 0px 3px 0px #cccccc;
+}
+
+.wii-btn:hover 
+{
+    background-color: #fbe03d;
+    color: #333333;
+    border-color: #e0be16;
+    box-shadow: 0px 3px 0px #e0be16;
+    transform: translateY(-1px); /* Eleva el botón un píxel hacia arriba al apuntarlo */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto;
+}
+
+.wii-btn-azul:hover 
+{
+    background-color: #ff6b6b;
+    color: #ffffff;
+    border-color: #e64c4c;
+    box-shadow: 0px 3px 0px #e64c4c;
+}
+
+/* Flecha decorativa */
+.flecha-retro 
+{
+    margin-right: 8px; /* Deja un pequeño espacio de separación entre la flecha y el texto */
+    font-size: 12px; /* Ajusta el tamaño de la pequeña flecha de texto */
+}
+/* ------------------------------------------------------- NOT FOUND ------------------------------------------------------------- */
+.error 
+{
+    background: radial-gradient(circle, #002a66 0%, #000a1a 100%); 
+    cursor: url(../Cursor/Wii\ Cursor.cur), auto;
+    font-family: "Poppins", sans-serif;
+    display: flex; /* Activa Flexbox para convertir el cuerpo en contenedor flexible */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana del navegador */
+    margin: 0; /* Quita los márgenes por defecto para que no aparezcan barras de scroll */
+}
+
+.modal 
+{
+    background-color: #e0e0e0;
+    width: 550px; /* El ancho del cuadro de error */
+    border-radius: 40px; /* Esquinas más redondeadas */
+    border: 4px solid #7a7a7a;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5); /* Sombra oscura para dar efecto */
+    overflow: hidden; /* Recorta las esquinas de la barra superior para que respeten el redondeado */
+    text-align: center; /* Alinea todos los textos en el centro */
+}
+
+.header 
+{
+    background: linear-gradient(to bottom, #9b9b9b, #7a7a7a); 
+    color: white;
+    padding: 15px; /* Espaciado interno para dar altura a la barra del título */
+    font-size: 28px; /* Tamaño de letra */
+    font-weight: bold; /* Aplica estilo negrita */
+    letter-spacing: 2px; /* Añade separación extra entre las letras del encabezado */
+    border-bottom: 3px solid #666; /* Línea gris oscura que separa el título del contenido */
+}
+
+.content 
+{
+    padding: 30px 40px; /* Margen interno amplio para separar el texto de los bordes del cuadro */
+    color: #333; 
+}
+
+.title-text 
+{
+    font-size: 26px; /* Tamaño de la letra */
+    font-weight: bold; /* Pone en negrita la frase */
+    margin-bottom: 20px; /* Deja un espacio de separación con el bloque de texto de abajo */
+}
+
+.body-text 
+{
+    font-size: 29px; /* Tamaño de letra */
+    line-height: 1.5; /* El espacio entre líneas */
+    margin-bottom: 20px; /* Separa el texto del contenedor del botón inferior */
+}
+
+.button-container 
+{
+    display: flex; /* Activa flexbox en el contenedor del botón */
+    justify-content: center;
+    padding: 0 40px 40px 40px; /* Margen interno solo por los lados y por abajo */
+}
+
+/* Botón */
+.btn
+{
+    color: #333;
+    background: linear-gradient(to bottom, #ffffff 0%, #d1e5f0 100%); /* Degradado de blanco a azul claro */
+    border: 3px solid #8ba8bd; /* Borde azul grisáceo */
+    padding: 12px 0; /* Espaciado arriba y abajo para darle grosor vertical al botón */
+    width: 180px; 
+    border-radius: 50px; /* Esquinas redondeadas */
+    font-size: 24px; /* Tamaño de la letra */
+    font-weight: normal;
+    transition: transform 0.1s; /* Hace que la animación, al pasar el ratón dure 0.1 segundos */
+}
+
+.btn:hover 
+{
+    background: linear-gradient(to bottom, #f0faff 0%, #c4e0f0 100%); /* Cambia a un degradado azul */
+    transform: scale(1.03); /* Agranda el botón un 3% para que haya un efecto visual */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; /* Cambia el cursor al puntero azul al pasar el ratón */
+}
+
+/* ----------------------------------------------- MII ------------------------------------------------------------------ */
+.mii 
+{
+    background-image: url(../Fotos\ y\ fondos/fondo-mii.png);
+    background-size: cover; /* Ajusta el fondo para que cubra toda la pantalla sin deformarse */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: url(../Cursor/Wii\ Cursor.cur), auto; 
+    min-height: 100vh; /* Obliga a la sección a medir, como mínimo, el alto completo de la pantalla */
+    display: flex; /* Activa el flexbox para estructurar el contenido en vertical */
+    flex-direction: column; /* Coloca los elementos hijos uno debajo de otro */
+}
+
+.galeria-mii 
+{
+    display: grid; /* Activa la cuadrícula para organizar las tarjetas de los Miis */
+    grid-template-columns: repeat(5, 230px); /* Crea exactamente 5 columnas fijas de 230px cada una */
+    gap: 40px 50px; /* Deja un espacio de 40px entre filas y 50px entre columnas */
+    justify-content: center; /* Centra horizontalmente todo el bloque de columnas en la pantalla */
+    margin: 120px auto 60px auto; /* Centra el contenedor; el margen superior de 120px evita que el menú tape las tarjetas */
+    width: 100%; 
+    max-width: 1400px;
+}
+
+.card-container 
+{
+    background: white;
+    width: 230px; 
+    border-radius: 30px; /* Redondea las esquinas de la tarjeta blanca */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+    padding: 10px; /* Espacio libre interno para separar el contenido amarillo del borde blanco */
+}
+
+.card-container:hover 
+{
+    transform: scale(1.10); /* Agranda la tarjeta un 10% cuando pasas el ratón por encima */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; /* Cambia el cursor al puntero azul */
+}
+
+.card-image 
+{
+    background-color: #ffcc00; 
+    border-radius: 20px; /* Redondea las esquinas del bloque amarillo */
+    overflow: hidden; /* Corta la imagen si llega a sobresalir del fondo amarillo */
+}
+
+.card-image img 
+{
+    width: 100%; /* Obliga al Mii a ocupar todo el ancho disponible del cuadro amarillo */
+    display: block; /* Elimina el pequeño espacio en blanco que los navegadores dejan debajo de las imágenes */
+}
+
+.card-info 
+{
+    padding: 15px 5px; /* Margen interno para separar los textos de los bordes de la tarjeta */
+}
+
+.card-title 
+{
+    margin: 0px 10px 15px; /* Quita el margen de arriba, da separación lateral y espacio abajo */
+    font-size: 28px; 
+    color: #333;
+    font-weight: 800; /* Estilo de letra negrita */
+}
+
+/* Etiquetas */
+.tag 
+{
+    background-color: #ffb366;
+    color: #333;
+    padding: 5px 15px; 
+    border-radius: 20px; /* Esquinas redondeadas */
+    font-size: 14px;
+    font-weight: bold; /* Pone el texto del rasgo en negrita */
+}
+
+.tags 
+{
+    display: flex; /* Activa el flexbox para las etiquetas */
+    flex-wrap: wrap; /* Hace que las etiquetas bajen a una nueva línea si se quedan sin espacio */
+    gap: 8px; /* Separación fija entre los textos */
+    margin-bottom: 20px; /* Espacio libre inferior antes de terminar la tarjeta */
+}
+
+/* -------------------------------------------------------- DETALLE MII ---------------------------------------------------------------*/
+.wii-card-link 
+{
+    width: 100%; /* Ocupa el ancho de la pantalla */
+    height: 100%; /* Ocupa todo el alto de la pantalla */
+}
+
+/* BODY */
+.mii-detalle-body 
+{
+    background-image: url(../Fotos\ y\ fondos/fondo-mii.png);
+    background-size: cover; /* Ajusta la imagen de fondo para que cubra toda la pantalla sin deformarse */
+    background-position: center; /* Centra la imagen de fondo horizontal y verticalmente */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    cursor: url(../Cursor/Wii\ Cursor.cur), auto;
+    min-height: 100vh; /* Fuerza al body a medir como mínimo el 100% de la altura de la ventana */
+    display: flex; 
+    justify-content: center; /* Centra el contenedor del perfil horizontalmente */
+    align-items: center; /* Centra el contenedor del perfil verticalmente */
+}
+
+/* Contenedor */
+.mii-perfil-container 
+{
+    width: 90%; /* Hace que la tarjeta ocupe el 90% del ancho en pantallas pequeñas */
+    max-width: 950px; 
+    display: flex; /* La columna de datos y la del Mii una al lado de la otra */
+    align-items: center; /* Alinea verticalmente el cuadro blanco y el Mii por sus centros */
+    gap: 40px; /* Genera una separación fija de 40px entre el cuadro de datos y el Mii */
+}
+
+/* Columna Izquierda: Contenedor */
+.mii-perfil-datos 
+{
+    flex: 1.2; /* Distribuye el espacio asignándole un tamaño ligeramente mayor que al Mii */
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 45px; /* Redondea los bordes del cuadro */
+    padding: 35px; 
+    display: flex; /* Permite ordenar las filas de información de forma vertical */
+    flex-direction: column; /* Coloca cada fila de atributos una debajo de la otra */
+    gap: 22px; /* Establece una separación vertical constante entre fila y fila */
+    box-shadow: 0 0 45px rgba(0, 0, 0, 0.35); /* Añade una sombra oscura difuminada para dar profundidad */
+}
+
+/* Filas */
+.mii-fila-atrib 
+{
+    display: flex;
+    align-items: center; /* Centra verticalmente con su texto correspondiente */
+    gap: 20px; /* Deja una separación horizontal de 20px entre el cuadro y el texto */
+}
+
+.mii-fila-atrib.fila-principal 
+{
+    justify-content: center; /* Centra horizontalmente respecto al cuadro blanco */
+    margin-top: -55px; /* Desplaza el cuadro hacia arriba haciendo que sobresalga del cuadro blanco */
+    margin-bottom: 10px; /* Añade una separación con la fila de abajo */
+}
+
+/* Diseño del cuadro */
+.mii-badge 
+{
+    background-color: #061891; 
+    color: #ffffff; /* Color de la letra */
+    padding: 6px 20px; 
+    border-radius: 25px; /* Redondea completamente los extremos laterales */
+    font-weight: bold; /* Aplica estilo negrita al texto */
+    font-size: 19px; 
+    box-shadow: 0 3px 0 #030a6f; /* Añade un borde inferior oscuro */
+}
+
+.mii-badge.grande 
+{
+    font-size: 27px; /* Aumenta el tamaño de la letra */
+    padding: 10px 40px; 
+    border-radius: 30px; 
+    box-shadow: 0 3px 0 #030a6f; /* Mantiene la sombra inferior */
+}
+
+/* Textos */
+.mii-texto-atrib 
+{
+    font-size: 16px; /* Define el tamaño de los textos */
+    font-weight: bold; /* Resalta el texto en negrita */
+    color: #333333; /* Aplica un color gris oscuro */
+}
+
+/* --- CAJA CONTENEDOR AZUL --- */
+.mii-caja-descripcion 
+{
+    background-color: #4388d7; 
+    border-radius: 35px; /* Redondea las esquinas de la caja de descripción */
+    padding: 25px; /* Añade espacio interno */
+    margin-top: 10px; /* Separa la caja azul de los atributos superiores */
+    border: 2px solid #00187a; 
+}
+
+.mii-desc-titulo 
+{
+    color: #005dc7; 
+    margin-bottom: 12px; /* Añade separación entre el título y el párrafo inferior */
+    font-size: 27px; /* Tamaño de letra */
+    font-weight: bold; /* Pone el título en negrita */
+    text-align: center; /* Centra el título dentro de la caja azul */
+    -webkit-text-stroke: 1px white; /* Crea un borde o silueta blanca alrededor de las letras */
+}
+
+.mii-desc-texto 
+{
+    color: black; 
+    font-size: 18px; /* Tamaño de letra  */
+    line-height: 1.6; /* Aumenta el interlineado vertical para que las líneas no se amontonen */
+    margin: 0; 
+    font-weight: bold; /* Resalta el bloque de la descripción en negrita */
+    text-align: center; /* Centra todo el bloque de texto descriptivo */
+}
+
+.mii-imagen 
+{
+    max-width: 350px; /* Evita que el personaje se píxele limitando su tamaño máximo */
+    filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.15)); /* Proyecta una sombra que se adapta a la silueta del Mii */
+}
+/* -------------------------------------------------------- TIENDA ----------------------------------------------------------*/
+.wii-tienda 
+{
+    min-height: 100vh; /* Fuerza a la pantalla a medir como mínimo el alto de la ventana */
+    background-image: url(../Fotos\ y\ fondos/fondo-compra.jpg); 
+    background-size: cover; /* Ajusta el fondo para que cubra toda la pantalla sin deformarse */
+    background-position: center; /* Centra la imagen de fondo horizontal y verticalmente */
+    cursor: url(../Cursor/Wii\ Cursor.cur), auto; 
+    display: flex; /* Activa el flexbox para estructurar la página */
+    font-family: "Poppins", sans-serif; 
+    background-attachment: fixed;
+    flex-direction: column; /* Organiza los elementos hijos en vertical uno debajo de otro */
+}
+
+.tienda-container 
+{
+    width: 100%; /* Hace que el contenedor pueda usar todo el ancho de la pantalla */
+    max-width: 1200px; /* Limita el ancho en monitores grandes para que no se estire de más */
+    margin: 0 auto; 
+    padding: 20px;
+    display: flex; /* Activa el flexbox interno para organizar la cuadrícula y el contenido */
+    flex-direction: column; /* Alinea los elementos internos de arriba a abajo */
+    margin-top: 80px; /* Deja un espacio superior para evitar que el menú de navegación pise el contenido */
+}
+
+.wii-grid-compras 
+{
+    display: grid; /* Activa la cuadrícula para organizar los productos en filas y columnas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Reorganiza las columnas según el espacio disponible */
+    gap: 30px; /* Genera una separación fija de 30px tanto entre filas como entre columnas */
+    width: 100%;
+    margin-bottom: 30px; /* Deja un espacio de separación en la parte inferior */
+}
+
+/* Tarjetas */
+.channel-item 
+{
+    background: white; 
+    border: 3px solid #b5b5b5; /* Borde sólido de color gris */
+    border-radius: 15px; /* Redondea las esquinas de la tarjeta */
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; /* Corta la imagen que sobresalga de las esquinas redondeadas */
+    transition: transform 0.3s ease, border-color 0.3s ease; /* Suaviza la transición de los efectos */
+}
+
+.channel-item:hover 
+{
+    border-color: #31a0ff; /* Cambia el borde al color azul */
+    transform: scale(1.04); /* Incrementa el tamaño de la tarjeta un 4% */
+}
+
+.channel-item img 
+{
+    width: 100%;
+    height: 200px; /* Altura fija de imagen para todas las tarjetas */
+    object-fit: cover; /* Evita que se deformen las portadas */
+}
+
+/* Información */
+.product-info 
+{
+    padding: 20px; /* Añade margen interno para separar los textos del borde de la tarjeta */
+    text-align: center; /* Centra todos los textos dentro de la tarjeta */
+    display: flex; 
+    flex-direction: column; /* Coloca el título, precio y botón en orden vertical */
+    flex: 1; 
+    justify-content: space-between; /* Alinea el botón siempre abajo del todo */
+}
+
+.product-info h3 
+{
+    font-size: 20px; /* Define el tamaño de letra para el título del producto */
+    color: #444; 
+    margin: 0 0 10px 0; /* Elimina márgenes innecesarios y añade separación inferior */
+    font-family: "Poppins", sans-serif; 
+}
+
+.precio 
+{
+    font-weight: bold; /* La cifra del precio en negrita */
+    font-size: 22px; 
+    margin: 0 0 15px 0; /* Separa el bloque del precio respecto al botón inferior */
+    color: #222;
+}
+
+.btn-ver-mas 
+{
+    background: #3b5bdb; 
+    color: white; 
+    padding: 10px 0;
+    border-radius: 8px; /* Redondea las esquinas del botón */
+    font-weight: bold; /* Pone el texto en negrita */
+    font-size: 14px; /* Tamaño de letra*/
+    transition: background 0.2s ease; /* Suaviza el cambio de color de fondo al pasar el cursor */
+}
+
+.btn-ver-mas:hover
+{
+    background: #2a46b3; /* Oscurece el fondo azul cuando el usuario se posiciona encima */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; /* Cambia el cursor al pasar el ratón */
+}
+
+/* --------------------------------------------- PAGINACIÓN ---------------------------------------------------------------------------*/
+.wii-pagination 
+{
+    display: flex; /* Para alinear los botones a los lados */
+    justify-content: space-between; /* Separa los botones laterales */
+    align-items: center; /* Centra todo verticalmente */
+    width: 100%; /* Que pille todo el ancho */
+    padding: 20px 100px; /* Margen interno para que no pegue a los bordes de la pantalla */
+}
+
+.wii-pagination .page-btn 
+{
+    display: inline-flex; 
+    justify-content: center; /* Centra el texto horizontal */
+    align-items: center; /* Centra el texto vertical */
+    transition: all 0.2s ease; 
+}
+
+/* Botones */
+.wii-pagination .nav-btn 
+{
+    border-radius: 8px; /* Esquinas redondeadas  */
+    font-size: 18px; /* Tamaño de letra */
+    font-weight: bold; 
+    background: #6c6c6c; 
+    color: white; 
+    padding: 10px 20px; /* Margen interno para que el boton sea grande */
+}
+
+.wii-pagination .nav-btn:hover 
+{
+    background: #4a4a4a; /* Se oscurece al pasar el ratón */
+    color: white; /* Texto blanco */
+    transform: scale(1.05);
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; /* Cambia el cursor al pasar el ratón */
+}
+
+/* Botones de números */
+.wii-pagination .num-btn 
+{
+    width: 45px; /* Anchura */
+    height: 45px; /* Altura */
+    border-radius: 6px; /* Esquinas redondeadas */
+    font-size: 18px; 
+    font-weight: bold; 
+    background: #ffffff; /* Fondo blanco para los numeros */
+    color: #666666; 
+    border: 2px solid #cccccc; /* Borde gris clarito */
+}
+
+.wii-pagination .num-btn:hover 
+{
+    border-color: #31a0ff; /* Borde azul al seleccionarlo */
+    color: #31a0ff; /* Texto azul */
+    transform: scale(1.05); 
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; 
+}
+
+/* Número cuando está activo */
+.wii-pagination .page-numbers .num-btn.active 
+{
+    background: #6c6c6c; 
+    color: white; 
+    border-color: #6c6c6c; 
+}
+
+/* Cuando pasas por encima de la activa*/
+.wii-pagination .page-numbers .num-btn.active:hover 
+{
+    background: #4a4a4a; 
+    border-color: #4a4a4a; 
+}
+
+/* ---------------------------------------------------- MIGAS DE PAN ---------------------------------------------------------------------- */
+.ruta-tienda 
+{
+    width: 100%;
+    max-width: 1100px; /* Ancho máximo*/
+    margin: 90px auto 15px auto; /* 90px arriba las empuja para que salgan de la barra de navegación */
+    padding: 0 10px; /* Un pequeño espacio a los lados */
+    font-size: 22px;
+}
+
+.ruta-tienda .enlace a 
+{
+    color: #0066cc;
+}
+
+.ruta-tienda .enlace a:hover 
+{
+    text-decoration: underline;
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto;
+}
+
+/* -------------------------------------------------- DETALLE COMPRA ---------------------------------------------------------------------*/
+.pantalla-detalle 
+{
+    padding: 40px 0 0 0; /* Solo dejamos el espacio de arriba */
+    display: flex; /* Flexbox para estructurar la web */
+    flex-direction: column; /* Contenido uno debajo de otro */
+    min-height: 100vh; /* Ocupa todo el alto de la pantalla */
+    background-image: url(../Fotos\ y\ fondos/fondo-compra.jpg); 
+    background-size: cover; /* Cubre la pantalla entera sin deformar */
+    background-position: center; /* Centramos el fondo */
+    background-attachment: fixed; /* Fondo fijo al hacer scroll */
+    font-family: Arial, sans-serif; 
+    cursor: url(../Cursor/Wii\ Cursor.cur), auto;
+}
+
+.contenedor-principal 
+{
+    background: white; /* Fondo de la tarjeta */
+    width: 100%; 
+    max-width: 1100px; 
+    margin: 0 auto; /* Centramos el cuadro blanco */
+    padding: 30px; /* Separacion por dentro */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12); /* Sombra suave para darle relieve */
+}
+
+.cabecera-juego 
+{
+    border-bottom: 1px solid #e2e8f0; /* Linea gris fina abajo */
+    padding-bottom: 15px; /* Separacion de la linea con el titulo */
+    margin-bottom: 25px; /* Margen para que no pegue con lo siguiente */
+}
+
+.cabecera-juego h1 
+{
+    font-size: 40px; /* Tamaño del titulo del juego */
+    color: #384a5c; 
+}
+
+.fila-principal 
+{
+    display: flex; 
+    justify-content: space-between; 
+    gap: 30px; /* Separacion fija entre columnas */
+    margin-bottom: 40px; /* Margen abajo antes de la descripcion */
+}
+
+.columna-imagen 
+{
+    width: 25%; 
+}
+
+.caja-foto 
+{
+    width: 100%; 
+    height: 280px; /* Altura para la caja del juego */
+    display: flex; /* Activamos flexbox */
+    justify-content: center; /* Centra la portada de lado a lado */
+    align-items: center; /* Centra la portada de arriba a abajo */
+}
+
+.caja-foto img 
+{
+    max-width: 100%; /* Que no se pase del ancho */
+    max-height: 100%; /* Que no se pase del alto */
+    object-fit: contain; /* Ajusta la imagen entera sin recortarla */
+}
+
+.extras-foto 
+{
+    margin-top: 15px; /* Separacion con la foto de arriba */
+}
+
+.codigo-juego 
+{
+    font-size: 14px; /* Tamaño de la letra */
+    font-weight: bold; 
+    color: #888888; 
+    margin: 8px 0 0 0; 
+}
+
+.columna-datos 
+{
+    width: 40%; /* Pilla el centro de la fila */
+    display: flex; /* Caja flexible */
+    flex-direction: column; /* Los bloques de datos van hacia abajo */
+    gap: 16px; /* Separacion igualada entre cada bloque de texto */
+}
+
+.grupo-dato 
+{
+    display: flex; /* Activamos flexbox */
+    flex-direction: column; /* Etiqueta arriba y valor abajo */
+    gap: 4px; /* Separacion minima interna */
+}
+
+.etiqueta-gris 
+{
+    font-size: 17px; 
+    font-weight: bold; /* En negrita */
+    color: #7f8c8d; /* Color gris de las etiquetas */
+}
+
+.valor-negrita 
+{
+    font-size: 16px; 
+    color: #2c3e50; /* Color gris azulado oscuro */
+    font-weight: bold; 
+}
+
+.valor-gris 
+{
+    font-size: 16px; 
+    color: #7f8c8d; 
+}
+
+.valor-borde 
+{
+    font-size: 14px; 
+    color: #2c3e50;
+    font-weight: bold; /* En negrita */
+    border: 1px solid #cccccc; /* Recuadro gris */
+    padding: 3px 8px; /* Margen dentro del cuadradito */
+    border-radius: 2px; /* Esquinas redondeadas */
+    width: fit-content; /* Se ajusta a lo que mida el texto */
+    background: #fafafa; /* Fondo blanco grisaceo */
+}
+
+.caja-entrega 
+{
+    margin-top: 10px; /* Margen por arriba */
+    border-top: 1px dashed #e2e8f0; /* Linea discontinua gris */
+    padding-top: 15px; /* Espacio despues de la linea */
+}
+
+.texto-entrega 
+{
+    font-size: 12px; 
+    margin: 4px 0 0 0; /* Margen superior */
+    font-weight: bold; /* Texto en negrita */
+}
+
+.enlace-azul 
+{
+    color: #0066cc; 
+    text-decoration: underline; /* Texto subrayado */
+    font-size: 11px; 
+    margin-left: 5px; /* Separacion con el texto anterior */
+}
+
+.columna-precio 
+{
+    width: 30%; 
+    border-left: 1px solid #0066cc; /* Linea azul vertical que separa */
+    padding-left: 25px; /* Espacio para que el precio no pegue a la linea */
+}
+
+.tarjeta-reserva 
+{
+    display: flex; /* Activamos flexbox */
+    flex-direction: column; /* Apilamos los elementos hacia abajo */
+}
+
+.cabecera-reserva 
+{
+    display: flex; 
+    justify-content: space-between; /* Texto reservar a la izquierda y precio a la derecha */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+.texto-reservar 
+{
+    font-size: 18px; 
+    color: #004b93; 
+    font-weight: bold; 
+}
+
+.precio-partido 
+{
+    display: flex; /* Junta el numero y los centimos en linea */
+    align-items: flex-start; /* Centimos alineados arriba */
+    line-height: 1; /* Quitamos espacios vacios verticales */
+    color: #34495e; 
+}
+
+.numero-grande 
+{
+    font-size: 48px;
+    font-weight: 900; 
+    letter-spacing: -2px;
+}
+
+.centimos-arriba 
+{
+    font-size: 20px; /* Centimos mas pequeños */
+    font-weight: 900; 
+    margin-top: 4px;
+    padding-left: 2px; /* Separacion minima con los euros */
+}
+
+.botones-compra 
+{
+    display: flex; /* Activamos flexbox */
+    flex-direction: column; /* Botones uno encima de otro */
+    gap: 8px; /* Separacion entre ambos botones */
+    margin-bottom: 12px; /* Margen inferior */
+}
+
+.boton-azul-game 
+{
+    background: #0056b3; 
+    color: white;
+    font-size: 14px; 
+    font-weight: bold; /* En negrita */
+    padding: 10px 15px; /* Margen interno */
+    border-radius: 4px; /* Esquinas redondeadas */
+    display: flex; /* Flexbox para centrar contenido */
+    justify-content: center; /* Centra el texto en horizontal */
+}
+
+.boton-azul-game:hover 
+{
+    background: #004494; /* Azul mas oscuro al pasar el ratón */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; 
+}
+
+.seccion-descripcion 
+{
+    border-top: 1px solid #e2e8f0; /* Separador gris horizontal */
+    padding-top: 30px; /* Espacio interno superior */
+    margin-top: 10px; /* Margen externo superior */
+}
+
+.subtitulo-fino 
+{
+    font-size: 28px; 
+    font-weight: 300; 
+    color: #555555; 
+    margin: 0 0 20px 0; /* Separacion abajo */
+}
+
+.texto-descripcion p 
+{
+    font-size: 15px; 
+    color: #444444;
+    line-height: 1.6; /* Espaciado entre lineas */
+    margin: 0 0 16px 0; /* Separacion entre parrafos */
+    text-align: justify; /* Texto justificado */
+}
+
+.seccion-contacto-mapa 
+{
+    margin-top: 40px; /* Separacion con la descripcion */
+    margin-bottom: 20px; /* Margen abajo */
+}
+
+.contenedor-formulario-mapa 
+{
+    display: flex; /* Formulario y mapa lado a lado */
+    gap: 30px; /* Hueco en el medio de los dos */
+    margin-top: 15px; /* Espacio con el titulo */
+}
+
+.bloque-formulario-contacto, .bloque-mapa-ubicacion 
+{
+    width: 50%; /* Mitad de espacio para cada uno */
+    display: flex; 
+    flex-direction: column; /* Contenido vertical */
+}
+
+.formulario-contacto 
+{
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0; /* Borde gris clarito */
+    border-radius: 4px; /* Esquinas redondeadas */
+    padding: 20px; 
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Inputs apilados */
+    gap: 15px; 
+}
+
+.campo-formulario 
+{
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Label arriba, input abajo */
+    gap: 5px; /* Separacion entre label e input */
+}
+
+.campo-formulario label 
+{
+    font-size: 14px; 
+    font-weight: bold;
+    color: #444444; 
+}
+
+.campo-formulario input, .campo-formulario textarea 
+{
+    padding: 10px; 
+    border: 1px solid #ccc; /* Contorno gris */
+    border-radius: 4px; /* Esquinas redondeadas */
+    font-size: 15px;
+}
+
+.campo-formulario textarea 
+{
+    height: 100px; /* Altura del cuadro de texto */
+}
+
+.boton-enviar-contacto 
+{
+    background-color: #27c9ff; 
+    color: white; /* Texto blanco */
+    border: none; /* Sin bordes */
+    padding: 12px; 
+    font-size: 16px; /* Tamaño de la letra */
+    font-weight: bold; /* En negrita */
+    border-radius: 4px; 
+}
+
+.boton-enviar-contacto:hover 
+{
+    background-color: #23b2ff; /* Celeste mas oscuro al pasar por encima */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto;
+}
+
+.caja-iframe-mapa 
+{
+    border: 1px solid #e0e0e0; /* Contorno gris para el mapa */
+    border-radius: 4px; /* Esquinas redondeadas */
+    overflow: hidden; /* Corta las esquinas del mapa de google */
+    height: 100%; /* Rellena el alto de su columna */
+}
+
+.caja-iframe-mapa iframe 
+{
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa todo el alto */
+    border: none; 
+}
+
+.seccion-valoraciones 
+{
+    border-top: 1px solid #e2e8f0; /* Linea divisoria superior */
+    padding-top: 30px; /* Espacio arriba */
+    margin-top: 20px; 
+}
+
+.titulo-seccion-gris 
+{
+    font-size: 24px; /* Tamaño del titulo */
+    font-weight: 300;
+    color: #7f8c8d; 
+    text-transform: uppercase; /* En mayusculas */
+    margin: 0 0 35px 0; /* Margen inferior grande */
+    letter-spacing: 0.5px; /* Separa las letras */
+}
+
+.subtitulo-seccion-gris 
+{
+    font-size: 16px; 
+    font-weight: 300; 
+    color: #555555;
+    text-transform: uppercase;
+    margin: 0 0 10px 0; /* Separacion abajo */
+    letter-spacing: 0.5px; /* Espaciado de letras */
+}
+
+.bloque-formulario-votar 
+{
+    max-width: 800px; 
+    margin-bottom: 40px; /* Espacio abajo */
+}
+
+.grupo-estrellas 
+{
+    display: flex; /* Estrellas una al lado de otra */
+    gap: 2px; /* Separacion pegada entre estrellas */
+    margin-bottom: 15px; 
+}
+
+.estrella-vacia 
+{
+    font-size: 36px; /* Tamaño de la estrella */
+    color: #2680ff; 
+    line-height: 1; /* Ajustamos alto de linea */
+}
+
+.estrella-vacia:hover 
+{
+    transform: scale(1.1); /* Agranda la estrella al pasar el raton */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; 
+}
+
+.caja-comentario 
+{
+    width: 100%; /* Todo el ancho del bloque */
+    height: 90px; /* Alto inicial */
+    border: 1px solid #cccccc; /* Borde gris claro */
+    padding: 12px; 
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif; 
+    font-size: 13px; 
+    color: #333333; 
+}
+
+.fila-enviar-valoracion 
+{
+    display: flex; /* Flexbox */
+    justify-content: space-between; 
+    align-items: center; /* Alineados al centro vertical */
+    margin-top: 15px; /* Separacion con el textarea */
+}
+
+.boton-valorar 
+{
+    background-color: #3135ff;
+    color: white; /* Letras blancas */
+    border: none; /* Sin borde */
+    padding: 10px 35px; 
+    font-size: 13px; /* Tamaño de letra */
+    font-weight: bold; /* Texto en negrita */
+    border-radius: 4px; /* Esquinas curvas */
+    letter-spacing: 0.5px; /* Separa letras */
+}
+
+.boton-valorar:hover 
+{
+    background-color: #0b0b94; /* Se oscurece al pasar por encima */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto;
+}
+
+.enlace-normas 
+{
+    font-size: 11px; 
+    color: #333333; /* Color oscuro */
+}
+
+.enlace-normas:hover 
+{
+    text-decoration: underline; /* Se subraya al pasar el raton */
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; 
+}
+
+/*---------------------------------------------------------- CONTACTO ------------------------------------------------------------------*/
+.contacto 
+{
+    background-image: url(../Fotos\ y\ fondos/fondo-compra.jpg); 
+    background-size: cover; /* Cubre la pantalla entera sin deformar */
+    background-attachment: fixed; /* Fondo estático al hacer scroll */
+    cursor: url(../Cursor/Wii\ Cursor.cur), auto; 
+    display: flex; /* Flexbox para estructurar toda la página */
+    flex-direction: column; /* Coloca las secciones principales hacia abajo */
+    min-height: 100vh; /* Fuerza a ocupar toda la pantalla */
+}
+
+.contacto-principal 
+{
+    width: 700px; /* Ancho fijo para centrar la tarjeta de contacto */
+    margin: 0 auto; /* Centra el bloque entero en horizontal */
+    padding-top: 140px; /* Espacio arriba para que el menu no lo pise */
+    padding-bottom: 60px;
+    flex-grow: 1; /* Estira la sección para mandar el footer abajo del todo */
+}
+
+.bloque-info, .bloque-formulario, .bloque-texto 
+{
+    background: white; 
+    padding: 25px; /* Margen interno */
+    border: 2px solid #ccc; /* Contorno gris clarito */
+    border-radius: 20px; /* Esquinas redondeadas */
+    margin-bottom: 30px; 
+}
+
+.bloque-info 
+{
+    display: flex; /* Ponemos los datos y el mapa lado a lado */
+    justify-content: space-between; /* Texto a la izquierda y mapa a la derecha */
+}
+
+/* Mapa */
+.datos-mapa iframe 
+{
+    width: 340px; /* Tamaño del ancho del mapa */
+    height: 230px; /* Tamaño del alto del mapa */
+    border-radius: 10px; 
+}
+
+.bloque-texto p 
+{
+    line-height: 1.6; /* Separacion de lineas */
+    text-align: justify; /* Justificamos los parrafos del texto */
+    margin-bottom: 15px;
+}
+
+.input-grupo 
+{
+    display: flex; /* Inputs en linea horizontal */
+    gap: 15px; /* Hueco de separacion entre un input y otro */
+    margin-bottom: 15px; /* Separacion con la fila de abajo */
+}
+
+.input-grupo input 
+{
+    flex: 1; /* Hace que los inputs se repartan el espacio a partes iguales */
+    padding: 12px; 
+    border: 2px solid #ccc; /* Borde gris normal */
+    border-radius: 10px; /* Esquinas redondeadas */
+    font-size: 16px; 
+}
+
+.input-grupo input:focus 
+{
+    border-color: #00aaff; /* El borde se vuelve azul wii al escribir */
+}
+
+.check-grupo 
+{
+    text-align: left; 
+    margin-bottom: 12px; /* Margen inferior para separar */
+    font-size: 15px; /* Tamaño de los textos */
+    color: #444; /* Gris oscuro */
+}
+
+.check-grupo input 
+{
+    margin-right: 4px; /* Espacio entre el cuadrado y el texto */
+    transform: scale(1.2); 
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; 
+}
+
+.check-grupo a 
+{
+    color: #00aaff; 
+    font-weight: bold; /* Enlaces en negrita */
+}
+
+.check-grupo a:hover 
+{
+    text-decoration: underline; /* Se subraya al ponerse encima */
+}
+
+.button-submit-container 
+{
+    display: flex; /* Activamos flexbox */
+    justify-content: center; /* Centramos el boton de enviar en el formulario */
+    margin-top: 20px; /* Margen arriba */
+}
+
+.btn-enviar 
+{
+    background: #00aaff;
+    color: white; /* Texto en blanco */
+    border: none; /* No bordes */
+    padding: 12px 40px; 
+    font-weight: bold; /* Palabra Enviar en negrita */
+    border-radius: 50px; /* Bordes redondeados */
+    font-size: 18px; 
+    cursor: url(../Cursor/wii-pointer-blue.cur), auto; 
+    transition: transform 0.1s;
+}
+
+.btn-enviar:hover 
+{
+    transform: scale(1.04); /* Se agranda al pasar el raton */
+    background: #0099ee; /* Se oscurece el azul */
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de la Foto 2</title>
+    <link rel="stylesheet" href="../CSS/estilos.css">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/256/1375/1375106.png" type="image/png">
+</head>
+<body class="galeria-body">
+
+    <!-- Barra de Navegación -->
+    <nav class="wii-nav">
+        <div class="wii-logo">
+            <a href="../HTML/index.html" target="_self">
+                <img src="../Fotos y fondos/Wii_logo.png" alt="Logo">
+            </a>
+        </div>
+        <div class="nav-izda">
+            <a href="../HTML/galeria1.html" class="nav-enlace">Galería</a>
+            <a href="../HTML/comprar1.html" class="nav-enlace">Compra</a>
+            <a href="../HTML/mii.html" class="nav-enlace">Personaje</a>
+            <a href="../HTML/contacto.html" class="nav-enlace">Contacto</a>
+        </div>
+        <div class="nav-dcha">
+            <a href="../HTML/registro.html" class="nav-btn btn-registro">Registrarse</a>
+            <a href="../HTML/inicio-sesion.html" class="nav-btn btn-login">Login</a>
+        </div>
+    </nav>
+
+    <!-- Contenedor Principal del Detalle -->
+    <main class="wii-detalle">
+        <div class="wii-detalle-tarjeta">
+            
+            <!-- Barra decorativa -->
+            <div class="wii-detalle-barra-top">
+                <span>Visualizador de Archivos SD</span>
+            </div>
+
+            <div class="wii-detalle-contenido">
+                <!-- Bloque Izquierdo: La Imagen -->
+                <div class="wii-detalle-izda">
+                    <div class="wii-marco">
+                        <img src="../Fotos y fondos/foto2.png" alt="Comiendo cereal entre partida y partida">
+                    </div>
+                </div>
+
+                <!-- Bloque Derecho: Detalles de la persona -->
+                <div class="wii-detalle-dcha">
+                    <h2 class="wii-detalle-titulo">Datos de la persona</h2>
+                    
+                    <table class="wii-tabla-info">
+                        <tr>
+                            <th>Nombre:</th>
+                            <td>Alberto</td>
+                        </tr>
+                        <tr>
+                            <th>Fecha de Captura:</th>
+                            <td>10 de Junio, 2026</td>
+                        </tr>
+                        <tr>
+                            <th>Consola de Origen:</th>
+                            <td>Wii (Modo SD)</td>
+                        </tr>
+                        <tr>
+                            <th>Estado Actual:</th>
+                            <td>Recargando energías en el lobby</td>
+                        </tr>
+                    </table>
+
+                    <div class="wii-detalle-descripcion">
+                        <h3>Descripción del Suceso</h3>
+                        <p>
+                            Momento clave capturado en mitad de una sesión intensiva de juego nocturna. 
+                            Ante la falta de tiempo entre partida y partida, se optó por la vieja confiable: 
+                            un buen tazón de cereales para mantener los reflejos al máximo. La cuchara en la 
+                            boca demuestra una concentración absoluta mientras se espera en la cola del servidor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="wii-detalle-acciones">
+                <a href="../HTML/galeria1.html" class="wii-btn">
+                    <span class="flecha-retro">◀</span> Volver al Álbum
+                </a>
+                <a href="../HTML/notfound.html" class="wii-btn wii-btn-azul">Borrar Datos</a>
+            </div>
+
+        </div>
+    </main>
+
+    <audio id="bgMusic" src="../Sonido/03 SD Card Gallery.mp3" loop></audio>
+    <script src="../CSS/script.js"></script>
+</body>
+</html>

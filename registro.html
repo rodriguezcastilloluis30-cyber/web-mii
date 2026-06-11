@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../CSS/estilos.css">
+    <!-- Esto es el favicon y sirve para modificar el icono que aparece en nuestra página web -->
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/1000/1000946.png" type="image/png">
+    <!-- Esto sirve para poner los iconos de las aplicaciones que he puesto -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body class="registro">
+
+    <div class="contenedor">
+        <!-- El action="../HTML/inicio.html" hace que al pulsar el botón te lleve allí automáticamente -->
+        <form action="../HTML/index.html">
+            <h1>Registro</h1>
+            
+            <div class="input-box">
+                <input type="text" placeholder="Usuario" required>
+                <i class="bx bxs-user"></i>
+            </div>
+            
+            <div class="input-box">
+                <input type="email" placeholder="Email" required>
+                <i class="bx bxs-envelope"></i>
+            </div>
+            
+            <div class="input-box">
+                <input type="password" placeholder="Contraseña" required>
+                <i class="bx bxs-lock-alt"></i>
+            </div>
+            
+            <button type="submit" class="btn-azul">Registrarse</button>
+            
+            <p>Si no puedes, regístrate con:</p>
+            <div class="redes-sociales">
+                <a href="../HTML/notfound.html"><i class="bx bxl-google"></i></a>
+                <a href="../HTML/notfound.html"><i class="bx bxl-facebook"></i></a>
+                <a href="../HTML/notfound.html"><i class="bx bxl-github"></i></a>
+            </div>
+            
+            <!-- Enlace directo para volver a la pantalla de login -->
+            <p class="cambio-texto">¿Ya tienes cuenta? <a href="../HTML/inicio-sesion.html">Inicia Sesión</a></p>
+        </form>
+    </div>
+
+</body>
+</html>
